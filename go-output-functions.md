@@ -1,0 +1,3 @@
+In Go, output functions are mainly used to display text or values on the screen, and they usually come from the `fmt` (format) package. The most common one is `fmt.Println()`, which prints text and automatically moves to a new line. For example, `fmt.Println("Hello")` will show *Hello* in the terminal. There’s also `fmt.Print()`, which prints without adding a new line.
+
+Another useful one is `fmt.Printf()`, which lets you format your output. This means you can control how values appear using placeholders like `%d` for numbers or `%s` for strings. For example, `fmt.Printf("Age: %d", 20)` prints “Age: 20”. These functions make it easy to display information clearly when your program runs.

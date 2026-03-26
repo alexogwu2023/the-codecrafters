@@ -1,0 +1,1 @@
+In Go, formatting verbs are special symbols used with functions like fmt.Printf() to control how values are displayed. They always start with % and tell Go what type of data you’re printing. For example, %d is used for integers, %s for strings, and %f for floating-point numbers. So if you write fmt.Printf("Age: %d", 20), Go replaces %d with 20.

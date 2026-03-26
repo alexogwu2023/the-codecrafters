@@ -1,0 +1,3 @@
+In Go, the `for` loop is the core looping function used to repeat a block of code multiple times. Go combines all loop functionality into a single `for` statement, making it versatile. You can use it to run code a fixed number of times, continue looping while a condition is true, or even create an endless loop that only stops when explicitly broken.
+
+A `for` loop can include three parts: initialization (setting a starting value), a condition (determining when to stop), and a post statement (updating variables after each iteration). This flexibility, combined with its simplicity, makes `for` the most common tool for iteration in Go programs.

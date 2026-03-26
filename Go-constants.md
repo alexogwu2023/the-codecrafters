@@ -1,0 +1,2 @@
+In Go constants are variables that have fixed values that cannot be changed. It is represented by the (const) keyword. It has the same naming rules as variables. 
+we have two types of constants, we have the typed and untyped. Typed constants are declared with a defined and specific type. While untyped constants are declared without type
