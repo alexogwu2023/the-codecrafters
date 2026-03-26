@@ -1,0 +1,3 @@
+In Go, a struct is a custom data type that lets you group different variables together under one name. It’s useful when you want to represent something more complex, like a “person” with a name, age, and email. Each piece of data inside the struct is called a field, and each field has its own type.
+
+You define a struct using the type keyword, then create instances (objects) of it to store and access data using dot notation (e.g., person.Name). Structs help you organize related data neatly and are commonly used to model real-world entities or structured data.
