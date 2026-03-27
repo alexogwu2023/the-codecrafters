@@ -16,11 +16,12 @@ func main() {
 		fmt.Scanln(&input1)
 		fmt.Scanln(&input2)
 
-		command1, err := strconv.Atoi(input1)
+		command1, err := strconv.ParseFloat(input1, 64)
 		if err != nil {
 			fmt.Println("Enter Numbers Only")
 			continue
 		}
+
 		var operator string
 		fmt.Print("select operation (+,-,*,/, exit, Help): ")
 		fmt.Scanln(&operator)
@@ -41,7 +42,7 @@ func main() {
 			fmt.Println("Try using Help")
 		}
 
-		command2, err := strconv.Atoi(input2)
+		command2, err := strconv.ParseFloat(input2, 64)
 		if err != nil {
 			fmt.Println("Enter Numbers Only")
 		}
