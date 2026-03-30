@@ -6,105 +6,70 @@ import (
 	"strings"
 )
 
-func main() {
-	for {
-		var input, base string
+func HexToDec(hex string) (int64, error) {
+	return strconv.ParseInt(hex, 16, 64)
 
-		fmt.Print("choose operation: ")
-		fmt.Print("hex: ")
-		fmt.Print("bin: ")
-		fmt.Print("dec: ")
-
-		fmt.Scan(&input)
-
-		if input == "quit" {
-			break
-		}
-
-		fmt.Scan(&base)
-		base = strings.ToLower(base)
-
-		if base == "hex" {
-			val, err := strconv.ParseInt(input, 16, 64)
-			if err != nil {
-				fmt.Println(" Invalid hex input")
-				continue
-			}
-			fmt.Println(" Decimal:", val)
-
-		} else if base == "bin" {
-			val, err := strconv.ParseInt(input, 2, 64)
-			if err != nil {
-				fmt.Println(" Invalid binary input")
-				continue
-			}
-			fmt.Println(" Decimal:", val)
-
-		} else if base == "dec" {
-			val, err := strconv.ParseInt(input, 10, 64)
-			if err != nil {
-				fmt.Println("✗ Invalid decimal input")
-				continue
-			}
-			fmt.Println("✦ Binary: ", strconv.FormatInt(val, 2))
-			fmt.Println("✦ Hex:    ", strings.ToUpper(strconv.FormatInt(val, 16)))
-
-		} else {
-			fmt.Println("✗ Unknown base (use hex, bin, dec)")
-		}
-	}
 }
 
-/*package main
+func BinaryToDec(bin string) (int64, error) {
+	return strconv.ParseInt(bin, 2, 64)
+}
 
-import (
-	"fmt"
-	"strconv"
-)
+func DecimalToHex(dec int64) string {
+	return strconv.FormatInt(dec, 16)
+}
+
+func DecimalToBin(dec int64) string {
+	return strconv.FormatInt(dec, 2)
+}
 
 func main() {
 	for {
-		var num1 string
-		var base int
+		var input string
+		var Converter string
 
-		fmt.Println("Base Converter: ")
-		fmt.Println(" Choose Operation\n")
-		fmt.Println(" 1. Convert to Hex: ")
-		fmt.Println(" 2. Convert to Bin: ")
-		fmt.Println(" 3. Convert to Dec: ")
-		fmt.Scan(&num1)
+		fmt.Print("Enter word: ")
+		fmt.Scanln(&input)
 
-		fmt.Print("Input Number: ")
-		fmt.Scan(&base)
+		fmt.Print("Enter Base (hex, bin, dec, exit): ")
+		fmt.Scanln(&Converter)
 
-		var Operation string
-		fmt.Print("select operation (Hex,Bin,Dec,Quit): ")
-		fmt.Scanln(&Operation)
-
-		if Operation == "Quit" {
+		if Converter == "exit" {
+			fmt.Println("..exited..")
 			break
 		}
 
-		if Operation == "Hex" {
-			fmt.Println("Decimal: "  strconv.ParseInt(num1, 16, 64))
-		}
-	}
-}*/
-
-/*if base == "hex" {
-			value, err := strconv.ParseInt(num1, 16, 64)
-		}
-		if err != nil {
-			fmt.Println("Invalid Input")
+		if Converter != "hex" && Converter != "bin" && Converter != "dec" && Converter != "exit" {
+			fmt.Println("..Invalid Operation")
 			continue
 		}
-		fmt.Println("Decimal: ", value)
+		if Converter == "hex" {
+			val, err := HexToDec(input)
+			if err != nil {
+				fmt.Println("Not valid hex")
+			} else {
+				fmt.Println("Decimal: ", val)
+			}
+		}
+		if Converter == "bin" {
+			val, err := BinaryToDec(input)
+			if err != nil {
+				fmt.Println("Not valid bin")
+			} else {
+				fmt.Println("Decimal: ", val)
+			}
+		}
+		if Converter == "dec" {
+			val, err := strconv.ParseInt(input, 10, 64)
+			if err != nil {
+				fmt.Println("Not valid Decimal")
+			}
+			fmt.Println(strings.ToUpper(DecimalToHex(val)))
 
+			i, _ := strconv.ParseInt(input, 10, 64)
+			fmt.Println(DecimalToBin(i))
+
+		}
 	}
-}*/
 
-/*func ConvertToDec(number string, base int) (int64, error) {
-	return strings.ParseInt(number, base 64)
 }
-
-func ConvertToBin(number, )*/
