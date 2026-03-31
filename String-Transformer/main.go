@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -44,7 +46,7 @@ func TitleCase(text string) string {
 		"in": true, "of": true, "up": true, "as": true, "is": true, "it": true,
 	}
 
-	words := strings.Split(text, " ")
+	words := strings.Fields(text)
 	for i, word := range words {
 		lower := strings.ToLower(word)
 		if i == 0 || !smallwords[lower] {
@@ -58,5 +60,38 @@ func TitleCase(text string) string {
 
 }
 func main() {
-	fmt.Println(TitleCase("the fall of the western power grid"))
+	for {
+		fmt.Println("Enter a word: ")
+		reader := bufio.NewReader(os.Stdin)
+		name, _ := reader.ReadString('\n')
+
+		var editor string
+		fmt.Println("Choose Operation(upper, lower, cap, title, snake, reverse, exit): ")
+		fmt.Scanln(&editor)
+
+		if editor == "exit" {
+			fmt.Println("exiting, goodbye")
+			break
+		}
+
+		if editor == "upper" {
+			fmt.Println(UpperText(name))
+		}
+		if editor == "lower" {
+			fmt.Println(LowerText(name))
+		}
+		if editor == "cap" {
+			fmt.Println(UpperFirstAlphabet(name))
+		}
+		if editor == "title" {
+			fmt.Println(TitleCase(name))
+		}
+		if editor == "snake" {
+			fmt.Println(SnakeCase(name))
+		}
+		if editor == "reverse" {
+			fmt.Println(ReverseWord(name))
+		}
+
+	}
 }
