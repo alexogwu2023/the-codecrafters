@@ -74,6 +74,11 @@ func main() {
 			break
 		}
 
+		if editor != "upper" && editor != "cap" && editor != "title" && editor != "snake" && editor != "reverse" && editor != "exit" {
+			fmt.Println("Invalid Command!")
+			fmt.Println("Valid commands: upper, lower, cap, title, snake, reverse, exit")
+		}
+
 		if editor == "upper" {
 			fmt.Println(UpperText(name))
 		}
