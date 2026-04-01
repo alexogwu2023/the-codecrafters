@@ -70,7 +70,7 @@ func main() {
 		fmt.Scanln(&editor)
 
 		if editor == "exit" {
-			fmt.Println("exiting, goodbye")
+			fmt.Println("Shutting down String Transformer. Goodbye.")
 			break
 		}
 
