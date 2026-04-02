@@ -40,26 +40,34 @@ func SnakeCase(words string) string {
 }
 
 func TitleCase(text string) string {
-	smallwords := map[string]bool{
-		"a": true, "an": true, "the": true, "and": true, "but": true, "or": true,
-		"for": true, "nor": true, "on": true, "at": true, "to": true, "by": true,
-		"in": true, "of": true, "up": true, "as": true, "is": true, "it": true,
+	smallWords := map[string]bool{
+		"a": true, "an": true, "the": true,
+		"and": true, "but": true, "or": true,
+		"for": true, "nor": true, "on": true,
+		"at": true, "to": true, "by": true,
+		"in": true, "of": true, "up": true,
+		"as": true, "is": true, "it": true,
 	}
 
-	words := strings.Fields(text)
-	for i, word := range words {
-		lower := strings.ToLower(word)
-		if i == 0 || !smallwords[lower] {
-			words[i] = strings.ToUpper(string(word[0])) + strings.ToLower(word[1:])
-		} else {
-			words[i] = lower
+	words := strings.Fields(strings.ToLower(text))
+
+	if len(words) == 0 {
+		return ""
+	}
+
+	words[0] = strings.ToUpper(words[0][:1]) + words[0][1:]
+
+	for i := 1; i < len(words); i++ {
+		if !smallWords[words[i]] {
+			words[i] = strings.ToUpper(words[i][:1]) + words[i][1:]
 		}
 	}
 
 	return strings.Join(words, " ")
-
 }
+
 func main() {
+	fmt.Println(" ====SENTINEL STRING TRANSFORMER — ONLINE====")
 	for {
 		fmt.Println("Enter a word: ")
 		reader := bufio.NewReader(os.Stdin)
