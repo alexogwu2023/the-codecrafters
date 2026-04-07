@@ -6,14 +6,20 @@ import (
 )
 
 func main() {
+	fmt.Println(" === GOPHERS CLI CALCULATOR ONLINE === ")
+
 	for {
 		var input1 string
 		var input2 string
 
 		fmt.Print("Enter Input1 : ")
-		fmt.Print("Enter Input2 : ")
-
 		fmt.Scanln(&input1)
+
+		var operator string
+		fmt.Print("select operation (+,-,*,/, exit, Help): ")
+		fmt.Scanln(&operator)
+
+		fmt.Print("Enter Input2 : ")
 		fmt.Scanln(&input2)
 
 		command1, err := strconv.ParseFloat(input1, 64)
@@ -21,10 +27,6 @@ func main() {
 			fmt.Println("Enter Numbers Only")
 			continue
 		}
-
-		var operator string
-		fmt.Print("select operation (+,-,*,/, exit, Help): ")
-		fmt.Scanln(&operator)
 
 		if operator == "Help" {
 			fmt.Println("add <a> <b>   → addition")
